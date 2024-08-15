@@ -51,7 +51,7 @@ const CreatePostPage = () => {
         placeholder="Type your thoughts here."
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        className="w-2/3 text-slate-800"
+        className="w-2/3 text-slate-200 bg-[#0C0A09]"
         rows={15}
       />
 
