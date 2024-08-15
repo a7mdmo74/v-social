@@ -1,28 +1,18 @@
-import { Skeleton } from '@/components/ui/skeleton';
+import PostCard from '@/components/Cards/PostCard';
 import { getPostListAction } from '@/lib/actions';
+import { clerkClient, User } from '@clerk/nextjs/server';
 
 export default async function Home() {
   const userPosts = await getPostListAction();
 
   return (
     <main>
-      <div>
-        <input type="text" />
+      <div className="flex flex-col gap-8">
+        {userPosts.map(async (post) => {
+          const user: User = await clerkClient.users.getUser(post.userId);
+          return <PostCard post={post} user={user} key={post.id} />;
+        })}
       </div>
-      <ul>
-        {userPosts.length > 0 ? (
-          userPosts.map((post) => <li key={post.id}>{post.title}</li>)
-        ) : (
-          <div className="flex items-center space-x-4 mt-4">
-            <Skeleton className="h-12 w-12 rounded-full" />
-            <div className="space-y-2">
-              <Skeleton className="h-4 w-[250px]" />
-              <Skeleton className="h-4 w-[200px]" />
-            </div>
-            <h1>test</h1>
-          </div>
-        )}
-      </ul>
     </main>
   );
 }
