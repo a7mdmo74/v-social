@@ -47,16 +47,12 @@ export const getUserPostListAction = async ({
  */
 export const createPostAction = async ({
   title,
-  body,
-  slug,
   userId,
 }: IPost): Promise<void> => {
   try {
     await prisma.post.create({
       data: {
         title,
-        body,
-        slug,
         userId: userId as string,
       },
     });
