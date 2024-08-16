@@ -9,7 +9,7 @@ export default function HomeLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div>
+    <>
       <Topbar />
       <main className="flex flex-row">
         <Leftbar />
@@ -19,6 +19,6 @@ export default function HomeLayout({
         <Rightbar />
       </main>
       <Bottombar />
-    </div>
+    </>
   );
 }

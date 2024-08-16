@@ -46,9 +46,9 @@ const PostCard = ({ post, user }: { post: IPost; user: User }) => {
             height={40}
             className="rounded-full object-cover"
           />
-          <h2 className="text-sm text-start">{user.username}</h2>
+          <h2 className="text-xs md:text-sm text-start">{user.username}</h2>
         </div>
-        <p className="text-sm text-slate-500">{timeAgo}</p>
+        <p className="text-xs md:text-sm text-slate-500">{timeAgo}</p>
       </div>
       <div>
         <p className="text-slate-200 text-base text-justify">{post.title}</p>
