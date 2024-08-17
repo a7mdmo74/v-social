@@ -6,6 +6,18 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'img.clerk.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'sm.ign.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.elbalad.news',
+      },
+      {
+        protocol: 'https',
+        hostname: 'media.gemini.media',
+      },
     ],
   },
 };

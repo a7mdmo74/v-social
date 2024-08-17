@@ -121,22 +121,14 @@ export const createPostAction = async ({
 //   }
 // };
 
-// =========================================== \\
-import cloudinary from 'cloudinary';
+// ************** news api ************** \\
 
-export type SearchResult = {
-  public_id: string;
-  tags: string[];
-};
+export const getNewsApiAction = async (): Promise<any> => {
+  try {
+    return await prisma.news.findMany({});
+  } catch (error) {
+    console.log(error);
 
-export async function addImageToAlbum(image: SearchResult, album: string) {
-  await cloudinary.v2.api.create_folder(album);
-
-  let parts = image.public_id.split('/');
-  if (parts.length > 1) {
-    parts = parts.slice(1);
+    throw new Error('Something went wrong');
   }
-  const publicId = parts.join('/');
-
-  await cloudinary.v2.uploader.rename(image.public_id, `${album}/${publicId}`);
-}
+};
