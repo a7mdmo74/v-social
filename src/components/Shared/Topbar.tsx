@@ -1,7 +1,14 @@
-import { OrganizationSwitcher, SignedIn, SignOutButton } from '@clerk/nextjs';
-import { dark } from '@clerk/themes';
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  SignOutButton,
+  UserButton,
+} from '@clerk/nextjs';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Button } from '../ui/button';
+import { LogInIcon } from 'lucide-react';
 
 function Topbar() {
   return (
@@ -10,37 +17,24 @@ function Topbar() {
         <Image
           src="/logo.png"
           alt="logo"
-          width={74}
-          height={74}
+          width={52}
+          height={52}
           priority
           className="w-auto"
         />
       </Link>
 
       <div className="flex items-center gap-1">
-        <div className="block md:hidden">
-          <SignedIn>
-            <SignOutButton>
-              <div className="flex cursor-pointer">
-                <Image
-                  src="/assets/logout.svg"
-                  alt="logout"
-                  width={24}
-                  height={24}
-                />
-              </div>
-            </SignOutButton>
-          </SignedIn>
+        <div className="block md:hidden mr-4">
+          <SignedOut>
+            <SignInButton mode="modal">
+              <Button>
+                <LogInIcon size={24} />
+              </Button>
+            </SignInButton>
+          </SignedOut>
         </div>
-
-        <OrganizationSwitcher
-          appearance={{
-            baseTheme: dark,
-            elements: {
-              organizationSwitcherTrigger: 'py-2 px-4',
-            },
-          }}
-        />
+        <UserButton />
       </div>
     </nav>
   );

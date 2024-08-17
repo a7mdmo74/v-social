@@ -3,7 +3,7 @@ import { User } from '@clerk/nextjs/server';
 import Image from 'next/image';
 import React from 'react';
 
-const PostCard = ({ post, user }: { post: IPost; user: User }) => {
+const PostCard = ({ post, user }: { post: IPost; user: User | null }) => {
   const givenDate = new Date(post.createdAt).getTime();
   const now = new Date().getTime();
 
@@ -40,13 +40,13 @@ const PostCard = ({ post, user }: { post: IPost; user: User }) => {
       <div className="flex items-center justify-between w-full">
         <div className="flex gap-2 items-center">
           <Image
-            src={user.imageUrl}
-            alt={user.fullName!}
+            src={user!.imageUrl}
+            alt={user!.fullName!}
             width={40}
             height={40}
             className="rounded-full object-cover"
           />
-          <h2 className="text-xs md:text-sm text-start">{user.username}</h2>
+          <h2 className="text-xs md:text-sm text-start">{user!.username}</h2>
         </div>
         <p className="text-xs md:text-sm text-slate-500">{timeAgo}</p>
       </div>
