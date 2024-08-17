@@ -50,8 +50,8 @@ const PostCard = ({ post, user }: { post: IPost; user: User | null }) => {
         </div>
         <p className="text-xs md:text-sm text-slate-500">{timeAgo}</p>
       </div>
-      <div>
-        <p className="text-slate-200 text-base text-justify">{post.title}</p>
+      <div className="p-3">
+        <p className="text-slate-200 text-base">{post.title}</p>
       </div>
     </div>
   );
