@@ -11,7 +11,7 @@ async function Rightbar() {
     .sort(() => Math.random() - Math.random())
     .slice(0, 4);
   return (
-    <section className="custom-scrollbar rightsidebar relative">
+    <section className="custom-scrollbar rightsidebar">
       <div>
         <h3 className="text-center text-xl font-semibold mb-4">
           Trending News
